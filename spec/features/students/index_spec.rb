@@ -19,5 +19,17 @@ describe 'As a visitor' do
       expect(page).to have_content(student3.age)
       expect(page).to have_content(student3.house)
     end
+
+    it 'should have average age of all students' do
+      student1 = Student.create!(name: 'John', age: 8, house: 'Slytherian')
+      student2 = Student.create!(name: 'Phil', age: 9, house: 'Ravenclaw')
+      student3 = Student.create!(name: 'Kim', age: 8, house: 'Gryffindor')
+
+      visit '/students'
+
+      within "#students-average-age" do
+        expect(page).to have_content('Average Age: 8')
+      end
+    end
   end
 end

@@ -1,6 +1,7 @@
 <h1>Students</h1>
 
 <div>
+  <h2 id="students-average-age" >Average Age: <%= @average %> </h2>
   <p><% @students.each do |student|%>
     <%= student.name %><br/>
     <%= student.age %><br/>
